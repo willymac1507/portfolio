@@ -1,0 +1,139 @@
+@use "../../utilities/mixins";
+@use "../../utilities/variables"as *;
+
+/* ================================================================== */
+/* === Coding Page                                                === */
+/* ================================================================== */
+
+.example {
+	&__group {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+		padding-bottom: 30px;
+
+		& > div {
+			border: 0;
+			padding-bottom: 0;
+			margin-bottom: 10px;
+
+			@include mixins.mq-xlarge {
+				flex: 0 1 48%;
+			}
+		}
+	}
+}
+
+// #example--2a,
+// #example--2b {
+// 	border: 0;
+// 	padding-bottom: 0;
+// 	margin-bottom: 10px;
+
+// 	@include mixins.mq-xlarge {
+// 		flex: 0 1 48%;
+// 	}
+// }
+
+#example--2d {
+	display: none;
+
+	@include mixins.mq-xlarge {
+		display: flex;
+	}
+}
+
+.coding {
+	&-modal {
+		&__container {
+			position: absolute;
+			top: 0;
+			left: 164px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: calc(100% - 164px);
+			height: 100vh;
+		}
+
+		&__content {
+			display: none;
+			width: 90%;
+			max-height: 90%;
+			overflow-y: auto;
+			z-index: 10;
+		}
+	}
+
+	&-main {
+		&__container {
+			@include mixins.section-container();
+		}
+
+		&__content {
+			@include mixins.content-container();
+			padding-top: 0;
+		}
+	}
+
+	&__example {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 30px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+		transform: scale(1);
+		overflow: visible;
+		transition: height 1s;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+
+		@include mixins.mq-xlarge() {
+			// 	flex: 0 0 45%;
+			flex-direction: row;
+		}
+	}
+
+	&__code {
+		max-height: 30vh;
+		overflow-y: scroll;
+		transition: max-height 1s;
+
+		@include mixins.mq-xlarge() {
+			overflow-y: auto;
+			max-height: max-content;
+		}
+
+
+	}
+
+	&__head {
+
+		@include mixins.mq-xlarge() {
+			// 	display: flex;
+			// 	flex-direction: column;
+			// 	gap: 30px;
+			flex: 1 0 48%;
+		}
+	}
+
+	&__scroller {
+		display: block;
+		width: 20%;
+		margin: 0 auto;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		@include mixins.mq-xlarge() {
+			display: none;
+		}
+	}
+}
+
+.code--expanded {
+	max-height: 81vh;
+	transition: max-height 1s;
+}

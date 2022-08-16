@@ -1,0 +1,81 @@
+@use "../utilities/mixins";
+@use "variables" as *;
+
+/* ================================================================== */
+/* === Buttons                                                    === */
+/* ================================================================== */
+.hamburger--open {
+	.hamburger__slice:first-of-type {
+		transform: translateY(11.5px) rotate(45deg);
+		transition: 0.5s;
+	}
+
+	.hamburger__slice:nth-of-type(2) {
+		opacity: 0;
+		transition: 0.5s;
+	}
+
+	.hamburger__slice:last-of-type {
+		transform: translateY(-11.5px) rotate(-45deg);
+		transition: 0.5s;
+	}
+}
+
+.hamburger {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	position: fixed;
+	z-index: 10;
+	top: 15px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	padding: 5px 0;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+
+	&__slice {
+		transition: 0.5s;
+		width: 35px;
+		height: 5px;
+		margin: 0 auto;
+		border-radius: 2px;
+		background-color: #000;
+	}
+
+	@include mixins.mq-medium() {
+		display: none;
+	}
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.5rem;
+	padding: 0 35px;
+	margin: 10px 0;
+	background-color: #fff;
+	color: $color-nav;
+	border: 2px solid $color-nav;
+	border-radius: 5px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background-color: $color-nav;
+		color: #fff;
+		border-color: $color-logo;
+		transition: all 0.2s ease-in-out;
+	}
+
+	&--disabled {
+		color: lightgrey;
+		border-color: lightgrey;
+		pointer-events: none;
+	}
+}

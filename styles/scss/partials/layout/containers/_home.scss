@@ -1,0 +1,231 @@
+@use '../../utilities/mixins';
+@use '../../utilities/variables'as *;
+
+/* ================================================================== */
+/* === Home Page                                                  === */
+/* ================================================================== */
+.main__container {
+    height: 100vh;
+
+    &.body--hide {
+        overflow: hidden;
+    }
+}
+
+.hero {
+
+    &__container {
+        @include mixins.section-container();
+        height: 100vh;
+    }
+
+    &__content {
+        @include mixins.content-container();
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.portfolio {
+
+    &__container {
+        @include mixins.section-container();
+    }
+
+    &__content {
+        @include mixins.content-container();
+        padding: 15px 15px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+
+        @include mixins.mq-medium {
+            padding: 50px 15px 0;
+            gap: 30px;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column-reverse;
+        flex: 0 0 80%;
+        color: $color-nav;
+
+        @include mixins.mq-small() {
+            flex: 1 1 45%;
+        }
+
+        @include mixins.mq-medium() {
+            flex-direction: column;
+        }
+
+        @include mixins.mq-large() {
+            flex: 1 1 30%;
+        }
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.3);
+            transition: color .25s;
+
+            .portfolio__image-overlay::after {
+                background-color: rgba(0, 0, 0, 0.6);
+                transition: all .25s;
+            }
+
+            .portfolio__tooltip {
+                visibility: visible;
+            }
+        }
+
+        hr {
+            width: 30%;
+            color: $color-nav;
+            opacity: 50%;
+
+            @include mixins.mq-small() {
+                display: none;
+            }
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        border-radius: 5px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    &__tooltip {
+        position: absolute;
+        visibility: hidden;
+        width: 50%;
+        height: 60%;
+        top: 42%;
+        left: 25%;
+        color: #fff;
+        background-color: transparent;
+        font-size: 0.8125rem;
+        z-index: 20;
+    }
+
+    &__image-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            display: inline-block;
+            background-color: transparent;
+        }
+    }
+}
+
+.card {
+    &__text {
+        margin: 15px 0 30px;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    &__title {
+        flex: 1 1 40%;
+
+        @include mixins.mq-small() {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__cta {
+        padding-bottom: 4.5px;
+    }
+}
+
+.contact {
+    &__container {
+        @include mixins.section-container();
+    }
+
+    &__content {
+        @include mixins.content-container();
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        @include mixins.mq-large() {
+            gap: 30px;
+        }
+    }
+
+    &__info-container {
+        flex: 1 1 100%;
+
+        @include mixins.mq-large() {
+            flex: 1 1 30%;
+        }
+    }
+
+    &__form-container {
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 7px;
+
+        @include mixins.mq-large() {
+            flex: 1 1 60%;
+        }
+
+        @include mixins.mq-xlarge() {
+            gap: 10px;
+        }
+    }
+
+    &__input {
+        flex: 1 1 100%;
+        height: 2rem;
+        background-color: lightgrey;
+        border-radius: 3px;
+
+        @include mixins.mq-medium() {
+            &:nth-child(-n+2) {
+                flex: 1 1 45%;
+            }
+        }
+    }
+
+    //&__input:nth-of-type(4) {
+    //    height: 10rem;
+    //}
+}
+
+div.contact__input:nth-last-of-type(2) {
+    height: 10rem;
+}
+
+.footer {
+    &__container {
+        @include mixins.section-container();
+    }
+
+    &__content {
+        width: 100%;
+        padding-bottom: 30px;
+        text-align: center;
+        font-size: .8125rem;
+        color: $color-nav;
+    }
+}

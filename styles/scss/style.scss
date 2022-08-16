@@ -1,0 +1,19 @@
+// base styles
+@use 'partials/base/normalize/import-now';
+@use 'partials/base/base';
+
+// visuals
+@use 'partials/visuals/images';
+@use 'partials/visuals/typography';
+@use 'partials/visuals/icons';
+
+// layout
+@use 'partials/layout/sections';
+@use 'partials/layout/containers';
+
+// utilities
+@use 'partials/utilities/buttons';
+@use 'partials/utilities/forms';
+
+// navigation
+@use 'partials/navigation/navbar';

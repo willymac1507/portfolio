@@ -1,0 +1,57 @@
+@use '../utilities/mixins' as *;
+
+/* ================================================================== */
+/* === Images                                                     === */
+/* ================================================================== */
+
+.page--overlay,
+.coding--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s;
+    }
+
+.overlay--dark {
+    opacity: 0.6;
+    z-index: 9;
+    transition: opacity 1s;
+}
+
+.portfolio {
+    &__image {
+        width: 100%;
+        border-radius: 5px;
+        display: block;
+        pointer-events: none;
+
+        @include mq-xlarge() {
+            pointer-events: all;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.about {
+    &__headshot {
+        width: 100%;
+    }
+}
+
+.coding {
+    &-modal__image {
+        width: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        transform: scale(1.5);
+    }
+}

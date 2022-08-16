@@ -1,0 +1,19 @@
+@use '../utilities/variables'as var;
+
+/* ================================================================== */
+/* === Base styles                                                === */
+/* ================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font: 300 16px 'Mukta Vaani', sans serif;
+    color: var.$color-nav;
+    letter-spacing: 0.4px;
+}
+
+a {
+    text-decoration: none;
+}

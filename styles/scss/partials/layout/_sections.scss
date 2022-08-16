@@ -1,0 +1,37 @@
+@use '../utilities/mixins';
+
+/* ================================================================== */
+/* === Sections                                                    === */
+/* ================================================================== */
+
+footer,
+#portfolio,
+#contact {
+    @include mixins.section();
+    @include mixins.section-image();
+}
+
+#hero {
+    background: center no-repeat url("../../images/hero.jpg");
+    @include mixins.section-image();
+    }
+
+#about {
+    background: center no-repeat url("../../images/code_back3.jpg");
+    @include mixins.section-image();
+    min-height: 100vh;
+}
+
+#scs-main {
+    min-height: 100vh;
+    background: left no-repeat url("../../images/scs_back2.jpg");
+    @include mixins.section-image();
+
+    @include mixins.mq-small() {
+        background-image: url("../../images/scs_back.jpg");
+    }
+
+    @include mixins.mq-large() {
+        background-image: url("../../images/scs_back3.jpg");
+    }
+}

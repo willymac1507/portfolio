@@ -1,0 +1,82 @@
+@use '../utilities/variables'as *;
+
+// layout mixins
+
+@mixin section() {
+    position: relative;
+    width: 100%;
+}
+
+@mixin section-image() {
+    background-size: cover;
+}
+
+@mixin section-container() {
+    width: 100%;
+
+    @include mq-medium() {
+        width: calc(100% - #{$nav-width-medium});
+        margin-left: auto;
+    }
+}
+
+@mixin content-container() {
+    position: relative;
+    padding: 50px 15px;
+    width: 100%;
+    height: 100%;
+
+    @include mq-small() {
+        max-width: $mvp-small;
+        margin: 0 auto;
+    }
+
+    @include mq-medium() {
+        padding: 50px 50px;
+        max-width: calc(#{$mvp-medium} - #{$nav-width-medium});
+    }
+
+    @include mq-large() {
+        max-width: calc(#{$mvp-large} - #{$nav-width-medium});
+    }
+
+    @include mq-xlarge() {
+        max-width: calc(#{$mvp-xlarge} - #{$nav-width-medium});
+    }
+
+    @include mq-xxlarge() {
+        max-width: calc(#{$mvp-xxlarge} - #{$nav-width-medium});
+    }
+}
+
+// media query mixins
+
+@mixin mq-small() {
+    @media screen and (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin mq-medium() {
+    @media screen and (min-width: 768px) and (min-height: 576px) {
+        @content;
+    }
+}
+
+@mixin mq-large() {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mq-xlarge() {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin mq-xxlarge() {
+    @media screen and (min-width: 1500px) {
+        @content;
+    }
+}

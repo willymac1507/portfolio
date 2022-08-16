@@ -1,0 +1,104 @@
+@use '../utilities/variables' as *;
+
+/* ================================================================== */
+/* === Icons                                                      === */
+/* ================================================================== */
+
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'IcoMoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+    line-height: 1;
+    transition: 0.2s;
+
+    /* Enable Ligatures ================ */
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga"1;
+    font-feature-settings: "liga";
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+    font-variant-ligatures: discretionary-ligatures;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &--arrow-down:before {
+        content: "\ebbb";
+    }
+
+    &--arrow-up:before {
+        content: "\ebb9";
+    }
+
+    &--arrow-forward:before {
+        content: "\ea3c";
+    }
+
+    &--github:hover,
+    &--twitter:hover,
+    &--linkedin2:hover {
+        font-size: 1.5rem;
+        transition: 0.2s;
+    }
+
+    &--github {
+        &:before {
+            content: "\eab0";
+        }
+        &:hover {
+            color: #171515;
+        }
+    }
+
+    &--twitter {
+        &:before {
+            content: "\ec62";
+        }
+        &:hover {
+            color: #00acee;
+        }
+    }
+    
+
+    &--linkedin2 {
+        &:before {
+            content: "\ec96";
+        }
+        &:hover {
+            color: #0072b1;
+        }
+    }
+
+    &--tel:before {
+        content: "\e9e3";
+    }
+
+    &--mail:before {
+        content: "\ec50";
+    }
+
+    &--location:before {
+        content: "\e9f6";
+    }
+
+    &--direction:before {
+        content: "\e9fd";
+    }
+
+    &--road:before {
+        content: "\eac7";
+    }
+
+    &--road,
+    &--location,
+    &--direction {
+        color: $color-logo;
+    }
+}

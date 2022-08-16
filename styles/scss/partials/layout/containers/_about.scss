@@ -1,0 +1,110 @@
+@use '../../utilities/mixins';
+@use '../../utilities/variables'as *;
+
+/* ================================================================== */
+/* === About Page                                                 === */
+/* ================================================================== */
+
+.about {
+    &__container {
+        @include mixins.section-container();
+    }
+
+    &__content {
+        @include mixins.content-container();
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+        color: darken(#fff, 20%);
+
+        @include mixins.mq-small() {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        order: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(4px);
+        width: 100%;
+        padding: 15px;
+
+        @include mixins.mq-small() {
+            flex: 1 0 45%;
+        }
+    }
+
+    &__sub-block {
+
+        &:nth-of-type(2) {
+            display: none;
+
+            @include mixins.mq-xlarge() {
+                display: block;
+            }
+        }
+
+        @include mixins.mq-xlarge() {
+            flex: 1 1 45%;
+        }
+    }
+
+    &__skills-list {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.block--me {
+    order: 0;
+
+    @include mixins.mq-small() {
+        flex: 0 0 100%;
+    }
+}
+
+.block--skills {
+    @include mixins.mq-small() {
+        flex: 0 0 35%;
+    }
+}
+
+.block--journey {
+    @include mixins.mq-xlarge() {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+}
+
+.progress {
+    &__container {
+        width: 100%;
+        height: 6px;
+        margin: 6px 0 3px;
+        border: 1px solid $color-nav;
+    }
+
+    &__bar {
+        width: 85%;
+        height: 100%;
+        background-color: green;
+    }
+}
+
+.bar {
+    &--50 {
+        width: 65%;
+        background-color: orange;
+    }
+}

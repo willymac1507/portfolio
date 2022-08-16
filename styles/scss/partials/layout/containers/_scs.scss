@@ -1,0 +1,81 @@
+@use '../../utilities/mixins';
+@use '../../utilities/variables'as *;
+
+/* ================================================================== */
+/* === SCS Page                                                   === */
+/* ================================================================== */
+
+.scs-main {
+    &__container {
+        @include mixins.section-container();
+        background-color: rgba(0, 0, 0, 0.3);
+        min-height: 100vh;
+    }
+
+    &__content {
+        @include mixins.content-container();
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 50px;
+        row-gap: 30px;
+        min-height: 100vh;
+        color: #fff;
+
+        h1 {
+            flex: 1 0 100%;
+        }
+
+        @include mixins.mq-xlarge() {
+            row-gap: 30px;
+        }
+
+        @include mixins.mq-xxlarge() {
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 5px;
+
+            h1 {
+                flex: 0 0 15%;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        flex: 1 1 100%;
+        padding: 5px 15px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 5px;
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        font-size: 0.8125rem;
+
+        @include mixins.mq-large() {
+            flex: 1 1 40%;
+        }
+
+        @include mixins.mq-xlarge() {
+            font-size: 1rem;
+        }
+
+        @include mixins.mq-xxlarge() {
+            width: 50%;
+
+            &:nth-of-type(2) {
+                align-self: flex-start;
+            }
+
+            &:nth-of-type(3) {
+                align-self: center;
+            }
+
+            &:nth-of-type(4) {
+                align-self: flex-end;
+            }
+        }
+    }
+}
